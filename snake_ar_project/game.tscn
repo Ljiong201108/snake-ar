@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://materials/walls.tres" type="Material" id=2]
@@ -25,17 +25,11 @@
 [ext_resource path="res://buttons/medium_size.png" type="Texture" id=23]
 [ext_resource path="res://buttons/large_size.png" type="Texture" id=24]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 320, 180 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 320, 180 )
-
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 160, 360 )
+extents = Vector2( 320, 360 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 160, 300 )
+extents = Vector2( 320, 360 )
 
 [node name="game" type="Node"]
 script = ExtResource( 1 )
@@ -58,9 +52,6 @@ script = ExtResource( 5 )
 [node name="gridmap" type="GridMap" parent="world"]
 mesh_library = ExtResource( 6 )
 cell_size = Vector3( 1, 1, 1 )
-data = {
-"cells": PoolIntArray(  )
-}
 script = ExtResource( 7 )
 __meta__ = {
 "_editor_clip_": 0,
@@ -81,23 +72,13 @@ layer = 0
 
 [node name="touch_interface" type="Node2D" parent="interface"]
 pause_mode = 1
-editor/display_folded = true
 script = ExtResource( 9 )
 
-[node name="up" type="TouchScreenButton" parent="interface/touch_interface"]
-position = Vector2( 640, 180 )
-shape = SubResource( 1 )
-
-[node name="down" type="TouchScreenButton" parent="interface/touch_interface"]
-position = Vector2( 640, 540 )
-shape = SubResource( 2 )
-
 [node name="left" type="TouchScreenButton" parent="interface/touch_interface"]
-position = Vector2( 160, 360 )
 shape = SubResource( 3 )
 
 [node name="right" type="TouchScreenButton" parent="interface/touch_interface"]
-position = Vector2( 1120, 420 )
+position = Vector2( 640, 0 )
 shape = SubResource( 4 )
 
 [node name="keyboard_interface" type="Node" parent="interface"]
@@ -163,7 +144,6 @@ margin_bottom = 60.0
 icon = ExtResource( 17 )
 
 [node name="main_menu" type="CenterContainer" parent="interface"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -220,9 +200,8 @@ pause_mode = 2
 
 [node name="dead_timer" type="Timer" parent="."]
 one_shot = true
+
 [connection signal="timeout" from="world/snake/update_timer" to="world/snake" method="_on_update_timer_timeout"]
-[connection signal="pressed" from="interface/touch_interface/up" to="interface/touch_interface" method="_on_up_pressed"]
-[connection signal="pressed" from="interface/touch_interface/down" to="interface/touch_interface" method="_on_down_pressed"]
 [connection signal="pressed" from="interface/touch_interface/left" to="interface/touch_interface" method="_on_left_pressed"]
 [connection signal="pressed" from="interface/touch_interface/right" to="interface/touch_interface" method="_on_right_pressed"]
 [connection signal="pressed" from="interface/pause_menu/margin/separator/pause" to="interface/pause_menu" method="_on_pause_pressed"]
