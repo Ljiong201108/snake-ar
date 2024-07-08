@@ -1,5 +1,13 @@
 extends Node
 
+const DISPLAY_IMG_RBG = 0;
+const DISPLAY_IMG_GREY = 1;
+const DISPLAY_IMG_PIXELSTRIP = 2;
+const DISPLAY_MARKER = 3;
+
+signal camera_ready
+signal camera_frame
+
 var dying_time = 3
 var default_refresh_time = 0.4
 
@@ -15,13 +23,38 @@ var arena_offset = - Vector3(int(global.arena_size.x / 2), int(global.arena_size
 var arena_aabb = AABB(arena_offset, global.arena_size - Vector3.ONE)
 
 onready var tween = $tween
-onready var dead_timer = $dead_timer
+#onready var dead_timer = $dead_timer
 onready var camera = $world/camera_pivot
 onready var gridmap = $world/gridmap
 onready var rocks_and_oranges = $world/rocks_and_oranges
 onready var snake = $world/snake
 onready var update_timer = $world/snake/update_timer
 onready var pause_menu = $interface/pause_menu
+
+onready var real_camera = preload("res://camera.gdns").new()
+var real_camera_size
+var texture_size
+var display_option = DISPLAY_IMG_RBG;
+var image = Image.new();
+
+func _ready():
+	real_camera.set_default(0);
+	real_camera.open();
+	real_camera.flip(true, false);
+	real_camera_size = Vector2(real_camera.get_width(), real_camera.get_height());
+	texture_size = max(real_camera_size.x, real_camera_size.y);
+	print("texture size: ", texture_size);
+
+	emit_signal("camera_ready", real_camera_size);
+
+func _process(delta):
+	var buffer = real_camera.get_image(display_option);
+
+	if not buffer:
+		return;
+		
+	image.create_from_data(texture_size, texture_size, false, Image.FORMAT_RGB8, buffer);
+	emit_signal("camera_frame", image)
 
 func level_up():
 	snake.length += snake.length_increase
@@ -30,13 +63,11 @@ func level_up():
 
 func reload():
 	get_tree().set_pause(false)
-	if game_over:
-		get_tree().reload_current_scene()
-	game_over = true
-	pause_menu.animate_darkness(true)
-	update_timer.stop()
-	dead_timer.start(dying_time)
-	camera.smoothly_move(camera.beginning, dying_time)
+#	if game_over:
+#		get_tree().reload_current_scene()
+#	game_over = true
+#	pause_menu.animate_darkness(true)
+#	update_timer.stop()
 	pause_menu.set_label_text("Game Over! Your score was {0}.".format([score]))
 
 func toggle_pause():
@@ -58,10 +89,7 @@ func toggle_play_state():
 			global.rock_count = int(global.rock_multipliers[difficulty] * pow(global.arena_size.x * global.arena_size.y * global.arena_size.z, float(2) / 3)) - 7
 	elif global.interface_to_display == global.DISPLAY_GAMEPLAY:
 		global.interface_to_display = global.DISPLAY_MAIN_MENU
-	get_tree().reload_current_scene()
+#	get_tree().reload_current_scene()
 
 func quit():
 	get_tree().quit()
-
-func _on_dead_timer_timeout():
-	pass

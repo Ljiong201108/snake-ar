@@ -1,0 +1,15 @@
+# This is a generated file and its contents are an internal implementation detail.
+# The download step will be re-executed if anything in this file changes.
+# No other meaning or use of this file is supported.
+
+method=git
+command=/usr/bin/cmake;-P;/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/tmp/godot_api-populate-gitclone.cmake
+source_dir=/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-src
+work_dir=/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps
+repository=https://github.com/godotengine/godot-headers.git
+remote=origin
+init_submodules=TRUE
+recurse_submodules=--recursive
+submodules=
+CMP0097=NEW
+

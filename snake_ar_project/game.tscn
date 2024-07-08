@@ -17,13 +17,13 @@
 [ext_resource path="res://buttons/restart.png" type="Texture" id=15]
 [ext_resource path="res://buttons/playmenu.png" type="Texture" id=16]
 [ext_resource path="res://buttons/quit.png" type="Texture" id=17]
-[ext_resource path="res://scripts/main_menu.gd" type="Script" id=18]
 [ext_resource path="res://buttons/easy_difficulty.png" type="Texture" id=19]
 [ext_resource path="res://buttons/medium_difficulty.png" type="Texture" id=20]
 [ext_resource path="res://buttons/hard_difficulty.png" type="Texture" id=21]
 [ext_resource path="res://buttons/small_size.png" type="Texture" id=22]
 [ext_resource path="res://buttons/medium_size.png" type="Texture" id=23]
 [ext_resource path="res://buttons/large_size.png" type="Texture" id=24]
+[ext_resource path="res://real_camera.gd" type="Script" id=25]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 320, 360 )
@@ -99,10 +99,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="label" type="Label" parent="interface/pause_menu/center"]
-margin_left = 640.0
-margin_top = 323.0
-margin_right = 640.0
-margin_bottom = 396.0
+margin_left = 320.0
+margin_top = 203.0
+margin_right = 320.0
+margin_bottom = 276.0
 custom_fonts/font = ExtResource( 12 )
 
 [node name="margin" type="MarginContainer" parent="interface/pause_menu"]
@@ -143,63 +143,60 @@ margin_right = 285.0
 margin_bottom = 60.0
 icon = ExtResource( 17 )
 
-[node name="main_menu" type="CenterContainer" parent="interface"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-script = ExtResource( 18 )
-
-[node name="grid" type="GridContainer" parent="interface/main_menu"]
-margin_left = 320.0
-margin_top = 155.0
-margin_right = 960.0
-margin_bottom = 565.0
-custom_constants/vseparation = 50
-custom_constants/hseparation = 50
-columns = 3
-
-[node name="easy_difficulty" parent="interface/main_menu/grid" instance=ExtResource( 13 )]
-margin_right = 180.0
-margin_bottom = 180.0
+[node name="easy_difficulty" parent="interface" instance=ExtResource( 13 )]
+visible = false
+margin_left = 36.0
+margin_top = 64.0
+margin_right = 216.0
+margin_bottom = 244.0
 icon = ExtResource( 19 )
 
-[node name="medium_difficulty" parent="interface/main_menu/grid" instance=ExtResource( 13 )]
-margin_left = 230.0
-margin_right = 410.0
-margin_bottom = 180.0
+[node name="medium_difficulty" parent="interface" instance=ExtResource( 13 )]
+visible = false
+margin_left = 226.0
+margin_top = 64.0
+margin_right = 406.0
+margin_bottom = 244.0
 icon = ExtResource( 20 )
 
-[node name="hard_difficulty" parent="interface/main_menu/grid" instance=ExtResource( 13 )]
-margin_left = 460.0
-margin_right = 640.0
-margin_bottom = 180.0
+[node name="hard_difficulty" parent="interface" instance=ExtResource( 13 )]
+visible = false
+margin_left = 416.0
+margin_top = 64.0
+margin_right = 596.0
+margin_bottom = 244.0
 icon = ExtResource( 21 )
 
-[node name="small_size" parent="interface/main_menu/grid" instance=ExtResource( 13 )]
-margin_top = 230.0
-margin_right = 180.0
-margin_bottom = 410.0
+[node name="small_size" parent="interface" instance=ExtResource( 13 )]
+visible = false
+margin_left = 36.0
+margin_top = 254.0
+margin_right = 216.0
+margin_bottom = 434.0
 icon = ExtResource( 22 )
 
-[node name="medium_size" parent="interface/main_menu/grid" instance=ExtResource( 13 )]
-margin_left = 230.0
-margin_top = 230.0
-margin_right = 410.0
-margin_bottom = 410.0
+[node name="medium_size" parent="interface" instance=ExtResource( 13 )]
+visible = false
+margin_left = 226.0
+margin_top = 254.0
+margin_right = 406.0
+margin_bottom = 434.0
 icon = ExtResource( 23 )
 
-[node name="large_size" parent="interface/main_menu/grid" instance=ExtResource( 13 )]
-margin_left = 460.0
-margin_top = 230.0
-margin_right = 640.0
-margin_bottom = 410.0
+[node name="large_size" parent="interface" instance=ExtResource( 13 )]
+visible = false
+margin_left = 416.0
+margin_top = 254.0
+margin_right = 596.0
+margin_bottom = 434.0
 icon = ExtResource( 24 )
 
 [node name="tween" type="Tween" parent="."]
 pause_mode = 2
 
-[node name="dead_timer" type="Timer" parent="."]
-one_shot = true
+[node name="real_camera" type="Sprite" parent="."]
+position = Vector2( 320, 320 )
+script = ExtResource( 25 )
 
 [connection signal="timeout" from="world/snake/update_timer" to="world/snake" method="_on_update_timer_timeout"]
 [connection signal="pressed" from="interface/touch_interface/left" to="interface/touch_interface" method="_on_left_pressed"]
@@ -208,10 +205,3 @@ one_shot = true
 [connection signal="pressed" from="interface/pause_menu/margin/separator/restart" to="interface/pause_menu" method="_on_restart_pressed"]
 [connection signal="pressed" from="interface/pause_menu/margin/separator/playmenu" to="interface/pause_menu" method="_on_playmenu_pressed"]
 [connection signal="pressed" from="interface/pause_menu/margin/separator/quit" to="interface/pause_menu" method="_on_quit_pressed"]
-[connection signal="pressed" from="interface/main_menu/grid/easy_difficulty" to="interface/main_menu" method="_on_easy_difficulty_pressed"]
-[connection signal="pressed" from="interface/main_menu/grid/medium_difficulty" to="interface/main_menu" method="_on_medium_difficulty_pressed"]
-[connection signal="pressed" from="interface/main_menu/grid/hard_difficulty" to="interface/main_menu" method="_on_hard_difficulty_pressed"]
-[connection signal="pressed" from="interface/main_menu/grid/small_size" to="interface/main_menu" method="_on_small_size_pressed"]
-[connection signal="pressed" from="interface/main_menu/grid/medium_size" to="interface/main_menu" method="_on_medium_size_pressed"]
-[connection signal="pressed" from="interface/main_menu/grid/large_size" to="interface/main_menu" method="_on_large_size_pressed"]
-[connection signal="timeout" from="dead_timer" to="." method="_on_dead_timer_timeout"]

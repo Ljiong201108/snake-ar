@@ -1,0 +1,14 @@
+# Target labels
+ godot_api-populate
+# Source files and their labels
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/CMakeFiles/godot_api-populate
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/CMakeFiles/godot_api-populate.rule
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/CMakeFiles/godot_api-populate-complete.rule
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-build.rule
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-configure.rule
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-download.rule
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-install.rule
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-mkdir.rule
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-patch.rule
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-test.rule
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-update.rule

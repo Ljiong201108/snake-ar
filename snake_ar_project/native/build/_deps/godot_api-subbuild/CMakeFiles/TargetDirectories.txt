@@ -1,0 +1,3 @@
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/CMakeFiles/godot_api-populate.dir
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/CMakeFiles/edit_cache.dir
+/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/CMakeFiles/rebuild_cache.dir

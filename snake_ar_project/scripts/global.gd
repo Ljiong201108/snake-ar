@@ -1,7 +1,7 @@
 extends Node
 
 enum {DISPLAY_MAIN_MENU, DISPLAY_GAMEPLAY}
-var interface_to_display = DISPLAY_MAIN_MENU
+var interface_to_display = DISPLAY_GAMEPLAY
 
 var sizes = [Vector3(10, 1, 10), Vector3(20, 1, 20), Vector3(30, 1, 30)]
 var arena_size = sizes[1]

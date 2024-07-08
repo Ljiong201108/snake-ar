@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/CMakeFiles/godot_api-populate"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/CMakeFiles/godot_api-populate.rule"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/CMakeFiles/godot_api-populate-complete.rule"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-build.rule"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-configure.rule"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-download.rule"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-install.rule"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-patch.rule"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-test.rule"
+		},
+		{
+			"file" : "/home/jiong/Desktop/ar-sheet-4-solution/native/build/_deps/godot_api-subbuild/godot_api-populate-prefix/src/godot_api-populate-stamp/godot_api-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"godot_api-populate"
+		],
+		"name" : "godot_api-populate"
+	}
+}
